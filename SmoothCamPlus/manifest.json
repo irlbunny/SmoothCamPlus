@@ -1,0 +1,15 @@
+﻿{
+  "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
+  "id": "SmoothCamPlus",
+  "name": "SmoothCamPlus",
+  "author": "Kaitlyn",
+  "version": "1.0.0",
+  "description": "Extra options to configure Beat Saber's Smooth Camera even more, no Cam2 required.",
+  "gameVersion": "1.19.0",
+  "dependsOn": {
+    "BeatSaberMarkupLanguage": "^1.6.0",
+    "BSIPA": "^4.2.1",
+    "SiraUtil": "^3.0.0"
+  },
+  "features": []
+}

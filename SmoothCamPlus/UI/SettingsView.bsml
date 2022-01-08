@@ -1,0 +1,20 @@
+﻿<vertical>
+    <vertical spacing='-10'>
+        <text text='Position' font-size='12' align='Center' />
+        <horizontal spacing='2' pref-width='135'>
+            <increment-setting text='X' value='position-x' apply-on-change='true' min='-100' max='100' increment='.05' />
+            <increment-setting text='Y' value='position-y' apply-on-change='true' min='-100' max='100' increment='.05' />
+            <increment-setting text='Z' value='position-z' apply-on-change='true' min='-100' max='100' increment='.05' />
+        </horizontal>
+    </vertical>
+
+    <vertical spacing='-10'>
+        <text text='Rotation' font-size='12' align='Center' />
+        <horizontal spacing='2' pref-width='180'>
+            <increment-setting text='X' value='rotation-x' apply-on-change='true' min='-100' max='100' increment='.05' />
+            <increment-setting text='Y' value='rotation-y' apply-on-change='true' min='-100' max='100' increment='.05' />
+            <increment-setting text='Z' value='rotation-z' apply-on-change='true' min='-100' max='100' increment='.05' />
+            <increment-setting text='W' value='rotation-w' apply-on-change='true' min='-100' max='100' increment='.05' />
+        </horizontal>
+    </vertical>
+</vertical>

@@ -1,43 +1,33 @@
-﻿using HarmonyLib;
-using IPA;
-using IPA.Config;
+﻿using IPA;
 using IPA.Config.Stores;
+using IPA.Loader;
+using SiraUtil.Attributes;
 using SiraUtil.Zenject;
-using SmoothCamPlus.Configuration;
+using SmoothCamPlus.AffinityPatches;
 using SmoothCamPlus.Installers;
-using System.Reflection;
+using IPAConfig = IPA.Config.Config;
 using IPALogger = IPA.Logging.Logger;
 
 namespace SmoothCamPlus
 {
-    [Plugin(RuntimeOptions.DynamicInit)]
-    internal class Plugin
+    [Plugin(RuntimeOptions.DynamicInit), NoEnableDisable, Slog]
+    public class Plugin
     {
-        private const string HARMONYID = "com.github.ItsKaitlyn03.SmoothCamPlus";
-
-        internal static IPALogger Log { get; private set; }
-        internal static Harmony HarmonyInstance { get; private set; } = new Harmony(HARMONYID);
-
         [Init]
-        public Plugin(IPALogger logger, Config conf, Zenjector zenjector)
+        public Plugin(IPALogger logger, IPAConfig conf, PluginMetadata metadata, Zenjector zenjector)
         {
-            Log = logger;
+            zenjector.UseLogger(logger);
 
-            PluginConfig.Instance = conf.Generated<PluginConfig>();
+            var config = conf.Generated<Config>();
+            zenjector.Install(Location.App, container =>
+            {
+                container.BindInstance(config).AsSingle();
+                container.BindInstance(new UBinder<Plugin, PluginMetadata>(metadata));
+
+                container.BindInterfacesTo<SmoothCameraPatch>().AsSingle(); // We always want to patch SmoothCamera.
+            });
 
             zenjector.Install<SCPMenuInstaller>(Location.Menu);
-        }
-
-        [OnEnable]
-        public void OnEnable()
-        {
-            HarmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
-        }
-
-        [OnDisable]
-        public void OnDisable()
-        {
-            HarmonyInstance.UnpatchSelf();
         }
     }
 }

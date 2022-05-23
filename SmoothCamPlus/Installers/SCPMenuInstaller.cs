@@ -4,7 +4,7 @@ using Zenject;
 
 namespace SmoothCamPlus.Installers
 {
-    public class SCPMenuInstaller : Installer
+    internal class SCPMenuInstaller : Installer
     {
         public override void InstallBindings()
         {

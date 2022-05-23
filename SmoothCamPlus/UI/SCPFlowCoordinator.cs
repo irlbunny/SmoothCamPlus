@@ -4,7 +4,7 @@ using Zenject;
 
 namespace SmoothCamPlus.UI
 {
-    public class SCPFlowCoordinator : FlowCoordinator
+    internal class SCPFlowCoordinator : FlowCoordinator
     {
         private MainFlowCoordinator _mainFlowCoordinator;
         private SCPSettingsView _scpSettingsView;

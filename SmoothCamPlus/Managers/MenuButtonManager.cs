@@ -8,7 +8,7 @@ using Zenject;
 
 namespace SmoothCamPlus.Managers
 {
-    public class MenuButtonManager : IInitializable, IDisposable
+    internal class MenuButtonManager : IInitializable, IDisposable
     {
         private readonly MainFlowCoordinator _mainFlowCoordinator;
         private readonly SCPFlowCoordinator _scpFlowCoordinator;

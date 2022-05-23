@@ -2,12 +2,10 @@
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo(GeneratedStore.AssemblyVisibilityTarget)]
-namespace SmoothCamPlus.Configuration
+namespace SmoothCamPlus
 {
-    internal class PluginConfig
+    internal class Config
     {
-        public static PluginConfig Instance { get; set; }
-
         public virtual float PositionX { get; set; }
         public virtual float PositionY { get; set; }
         public virtual float PositionZ { get; set; }

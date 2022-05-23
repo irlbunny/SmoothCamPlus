@@ -1,55 +1,68 @@
 ﻿using BeatSaberMarkupLanguage.Attributes;
 using BeatSaberMarkupLanguage.ViewControllers;
-using SmoothCamPlus.Configuration;
+using Zenject;
 
 namespace SmoothCamPlus.UI
 {
-    [ViewDefinition("SmoothCamPlus.UI.SettingsView.bsml")]
+    [ViewDefinition("SmoothCamPlus.Views.settings-view.bsml")]
     [HotReload(RelativePathToLayout = @"..\UI\SettingsView.bsml")]
-    public class SCPSettingsView : BSMLAutomaticViewController
+    internal class SCPSettingsView : BSMLAutomaticViewController
     {
+        private Config _config = null!;
+
         [UIValue("position-x")]
-        public float PositionX
+        protected float PositionX
         {
-            get => PluginConfig.Instance.PositionX;
-            set => PluginConfig.Instance.PositionX = value;
+            get => _config.PositionX;
+            set => _config.PositionX = value;
         }
+
         [UIValue("position-y")]
-        public float PositionY
+        protected float PositionY
         {
-            get => PluginConfig.Instance.PositionY;
-            set => PluginConfig.Instance.PositionY = value;
+            get => _config.PositionY;
+            set => _config.PositionY = value;
         }
+
         [UIValue("position-z")]
-        public float PositionZ
+        protected float PositionZ
         {
-            get => PluginConfig.Instance.PositionZ;
-            set => PluginConfig.Instance.PositionZ = value;
+            get => _config.PositionZ;
+            set => _config.PositionZ = value;
         }
 
         [UIValue("rotation-x")]
-        public float RotationX
+        protected float RotationX
         {
-            get => PluginConfig.Instance.RotationX;
-            set => PluginConfig.Instance.RotationX = value;
+            get => _config.RotationX;
+            set => _config.RotationX = value;
         }
+
         [UIValue("rotation-y")]
-        public float RotationY
+        protected float RotationY
         {
-            get => PluginConfig.Instance.RotationY;
-            set => PluginConfig.Instance.RotationY = value;
+            get => _config.RotationY;
+            set => _config.RotationY = value;
         }
+
         [UIValue("rotation-z")]
-        public float RotationZ
+        protected float RotationZ
         {
-            get => PluginConfig.Instance.RotationZ;
-            set => PluginConfig.Instance.RotationZ = value;
+            get => _config.RotationZ;
+            set => _config.RotationZ = value;
         }
+
         [UIValue("rotation-w")]
-        public float RotationW
+        protected float RotationW
         {
-            get => PluginConfig.Instance.RotationW;
-            set => PluginConfig.Instance.RotationW = value;
+            get => _config.RotationW;
+            set => _config.RotationW = value;
+        }
+
+        [Inject]
+        public void Construct(Config config)
+        {
+            _config = config;
         }
     }
 }

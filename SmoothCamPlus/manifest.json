@@ -3,13 +3,12 @@
   "id": "SmoothCamPlus",
   "name": "SmoothCamPlus",
   "author": "Kaitlyn",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Extra options to configure Beat Saber's Smooth Camera even more, no Cam2 required.",
-  "gameVersion": "1.19.0",
+  "gameVersion": "1.21.0",
   "dependsOn": {
     "BeatSaberMarkupLanguage": "^1.6.0",
-    "BSIPA": "^4.2.1",
+    "BSIPA": "^4.2.2",
     "SiraUtil": "^3.0.0"
-  },
-  "features": []
+  }
 }

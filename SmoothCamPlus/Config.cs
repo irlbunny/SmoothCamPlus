@@ -13,6 +13,5 @@ namespace SmoothCamPlus
         public virtual float RotationX { get; set; }
         public virtual float RotationY { get; set; }
         public virtual float RotationZ { get; set; }
-        public virtual float RotationW { get; set; }
     }
 }

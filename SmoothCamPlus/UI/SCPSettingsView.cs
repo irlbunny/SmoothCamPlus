@@ -52,13 +52,6 @@ namespace SmoothCamPlus.UI
             set => _config.RotationZ = value;
         }
 
-        [UIValue("rotation-w")]
-        protected float RotationW
-        {
-            get => _config.RotationW;
-            set => _config.RotationW = value;
-        }
-
         [Inject]
         public void Construct(Config config)
         {

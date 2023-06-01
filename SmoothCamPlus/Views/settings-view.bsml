@@ -10,11 +10,10 @@
 
     <vertical spacing='-10'>
         <text text='Rotation' font-size='12' align='Center' />
-        <horizontal spacing='2' pref-width='180'>
-            <increment-setting text='X' value='rotation-x' apply-on-change='true' min='-100' max='100' increment='.05' />
-            <increment-setting text='Y' value='rotation-y' apply-on-change='true' min='-100' max='100' increment='.05' />
-            <increment-setting text='Z' value='rotation-z' apply-on-change='true' min='-100' max='100' increment='.05' />
-            <increment-setting text='W' value='rotation-w' apply-on-change='true' min='-100' max='100' increment='.05' />
+        <horizontal spacing='2' pref-width='135'>
+            <increment-setting text='X' value='rotation-x' apply-on-change='true' min='-180' max='180' increment='1' />
+            <increment-setting text='Y' value='rotation-y' apply-on-change='true' min='-180' max='180' increment='1' />
+            <increment-setting text='Z' value='rotation-z' apply-on-change='true' min='-180' max='180' increment='1' />
         </horizontal>
     </vertical>
 </vertical>

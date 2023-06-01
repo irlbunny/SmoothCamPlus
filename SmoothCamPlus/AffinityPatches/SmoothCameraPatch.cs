@@ -20,21 +20,19 @@ namespace SmoothCamPlus.AffinityPatches
         {
             if (!____thirdPersonEnabled)
             {
-                // Idk how to math, aaa.
-                var customPosition = new Vector3(
-                    ____mainCamera.position.x + _config.PositionX,
-                    ____mainCamera.position.y + _config.PositionY,
-                    ____mainCamera.position.z + _config.PositionZ
-                );
-                var customRotation = new Quaternion(
-                    ____mainCamera.rotation.x + _config.RotationX,
-                    ____mainCamera.rotation.y + _config.RotationY,
-                    ____mainCamera.rotation.z + _config.RotationZ,
-                    ____mainCamera.rotation.w + _config.RotationW
-                );
+                var mainCameraPosition = ____mainCamera.position;
+                var mainCameraRotation = ____mainCamera.rotation;
 
-                var position = Vector3.Lerp(__instance.transform.position, customPosition, Time.deltaTime * ____positionSmooth);
-                var rotation = Quaternion.Slerp(__instance.transform.rotation, customRotation, Time.deltaTime * ____rotationSmooth);
+                var positionOffset = new Vector3(_config.PositionX, _config.PositionY, _config.PositionZ);
+                mainCameraPosition += positionOffset;
+
+                var rotationOffset = new Vector3(_config.RotationX, _config.RotationY, _config.RotationZ);
+                var eulerAngles = mainCameraRotation.eulerAngles;
+                eulerAngles += rotationOffset;
+                mainCameraRotation.eulerAngles = eulerAngles;
+
+                var position = Vector3.Lerp(__instance.transform.position, mainCameraPosition, Time.deltaTime * ____positionSmooth);
+                var rotation = Quaternion.Slerp(__instance.transform.rotation, mainCameraRotation, Time.deltaTime * ____rotationSmooth);
 
                 __instance.transform.SetPositionAndRotation(position, rotation);
 
